@@ -1,13 +1,11 @@
 package com.sunglowsys.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.Objects;
 
 @Entity
+@Table(name = "hotel_inventory")
 public class HotelInventory {
 
     @Id
@@ -15,15 +13,25 @@ public class HotelInventory {
 
     private Integer id ;
 
+    @NotNull
     private Integer totalInventory ;
 
+    @NotNull
     private Integer hotelId ;
 
+    @NotNull
     private Integer roomTypeId ;
 
 
     public HotelInventory(){
         System.out.println("HotelInventory object is created :");
+    }
+
+    public HotelInventory(Integer id, Integer totalInventory, Integer hotelId, Integer roomTypeId) {
+        this.id = id;
+        this.totalInventory = totalInventory;
+        this.hotelId = hotelId;
+        this.roomTypeId = roomTypeId;
     }
 
     public Integer getId() {
